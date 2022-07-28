@@ -1,0 +1,59 @@
+var EMAIL_DRAFTED = "EMAIL DRAFTED";
+
+function draftMyEmails() {
+  var sheet = SpreadsheetApp.getActiveSheet(); 
+  var startRow = 2;                            
+  var numRows = sheet.getLastRow() - 1;        
+  var lastColumn = sheet.getLastColumn();      
+  var dataRange = sheet.getRange(startRow, 1, numRows, lastColumn) 
+  var data = dataRange.getValues();            
+  
+  for (var i = 0; i < data.length; ++i) {
+    var row = data[i];  
+    var partnerContactName = row[0];               
+    var partnerEmail = row[1];               
+    var partner = row[2];                       
+    var PickupFulfillmentDate = row[16];  
+    var PickupWindow = row[17];                 
+    var DeliveryFulfillmentDate = row[18];  
+    var DeliveryWindow = row[19];                
+    var thismonth = row[14];      
+    var FulfillmentReportLink = row[20]; 
+    var PMname = row[21];             
+    var emailStatus = row[lastColumn - 1];  
+    
+    if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
+    
+      
+      var emailBody =  '<p>Hi ' + partnerContactName + ',<p>';
+        emailBody += '<p><font size="+5"> </font><p>';
+        emailBody += '<p>I hope you are well! I am reaching out to share your preliminary '+ thismonth +' fulfillment report, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p><font size="-1"> </font><p>';  
+        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
+        emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
+        emailBody += '<p><font size="-1"> </font><p>';
+        emailBody += '<p>The full preliminary report is linked here: <strong><a href="'+ FulfillmentReportLink +'">'+ partner +' Fulfillment Report</a></strong><p>';
+        emailBody += '<p>Let us know if you have any questions in advance of us sending out member communications with these dates! We’ll follow up before your fulfillment with final order counts.<p>';
+        emailBody += '<p><br><p>';
+        emailBody += '<p>Best,<p>';
+        emailBody += '<p>' + PMname+ '<p>';
+        emailBody += '<p><strong>Table22</strong><p>';
+
+
+    
+      GmailApp.createDraft(
+        partnerEmail,            
+        'Table22 x '+ partner +' '+ thismonth +' Fulfillment',  
+        '',                     
+        {
+        htmlBody: emailBody    
+        }
+      );
+      
+      sheet.getRange(startRow + i, lastColumn).setValue(EMAIL_DRAFTED); 
+      SpreadsheetApp.flush(); 
+    }
+  }
+}
