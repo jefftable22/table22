@@ -1,0 +1,52 @@
+var EMAIL_SENT = "EMAIL SENT";
+
+function draftMyEmails() {
+  var sheet = SpreadsheetApp.getActiveSheet(); 
+  var startRow = 2;                            
+  var numRows = sheet.getLastRow() - 1;        
+  var lastColumn = sheet.getLastColumn();      
+  var dataRange = sheet.getRange(startRow, 1, numRows, lastColumn) 
+  var data = dataRange.getValues();            
+  
+  for (var i = 0; i < data.length; ++i) {
+    var row = data[i];                
+    var partnerEmail = row[0];               
+    var partner = row[1];                       
+    var PickupFulfillmentDate = row[15];  
+    var PickupWindow = row[16];                 
+    var DeliveryFulfillmentDate = row[17];  
+    var DeliveryWindow = row[18];                
+    var thismonth = row[13];                 
+    var emailStatus = row[lastColumn - 1];  
+    
+    if (emailStatus !== EMAIL_SENT && partnerEmail) {  
+    
+      
+      var emailBody =  '<p>Hi ' + partner + ',<p>';
+        emailBody += '<p><font size="+5"> </font><p>';
+        emailBody += '<p>We are reaching out to remind you that your <strong>final order counts</strong> for ' + thismonth + ' fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p><font size="-1"> </font><p>';  
+        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p><font size="-1"> </font><p>';
+        emailBody += '<p>You can review a summary of your orders in the “Fulfillment Report” tab and a more detailed list in the “Cohort Rosters” tab. Don’t hesitate to reach out if you have any questions!<p>';
+        emailBody += '<p><br><p>';
+        emailBody += '<p>Cheers,<p>';
+        emailBody += '<p><strong>Merchant Partner Management Team</strong><p>';
+
+
+    
+      GmailApp.createDraft(
+        partnerEmail,            
+        'Table22 x '+ partner +' '+ thismonth +' Final Order Count',  
+        '',                     
+        {
+        htmlBody: emailBody    
+        }
+      );
+      
+      sheet.getRange(startRow + i, lastColumn).setValue(EMAIL_SENT); 
+      SpreadsheetApp.flush(); 
+    }
+  }
+}
