@@ -1,4 +1,4 @@
-var EMAIL_SENT = "EMAIL SENT";
+var EMAIL_DRAFTED = "EMAIL DRAFTED";
 
 function draftMyEmails() {
   var sheet = SpreadsheetApp.getActiveSheet(); 
@@ -19,17 +19,18 @@ function draftMyEmails() {
     var thismonth = row[13];                 
     var emailStatus = row[lastColumn - 1];  
     
-    if (emailStatus !== EMAIL_SENT && partnerEmail) {  
+    if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
     
       
       var emailBody =  '<p>Hi ' + partner + ',<p>';
         emailBody += '<p><font size="+5"> </font><p>';
-        emailBody += '<p>We are reaching out to remind you that your preliminary order counts for this month’s fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p>Table22 here — reaching out to remind you that your <strong>preliminary</strong> order counts for next month’s fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
         emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
-        emailBody += '<p>Let us know if you have any questions in advance of us sending out member communications with these dates! You will receive an email notification once this month’s order counts are final on the fifth business day.<p>';
+        emailBody += '<p>Over the coming days, we will send out communications to all members with a '+ thismonth +' order reminding them of the above fulfillment date and instructions. You will receive another email from us on the <strong>fifth business day</strong> once your '+ thismonth +' order counts are final!<p>';
+        emailBody += '<p>Don’t hesitate to reach out if you have any questions!<p>';
         emailBody += '<p><br><p>';
         emailBody += '<p>Cheers,<p>';
         emailBody += '<p><strong>Merchant Partner Management Team</strong><p>';
@@ -38,14 +39,14 @@ function draftMyEmails() {
     
       GmailApp.createDraft(
         partnerEmail,            
-        'Table22 x '+ partner +' '+ thismonth +' Fulfillment',  
+        'Table22 x '+ partner +' - Preliminary '+ thismonth +' Order Counts',  
         '',                     
         {
         htmlBody: emailBody    
         }
       );
       
-      sheet.getRange(startRow + i, lastColumn).setValue(EMAIL_SENT); 
+      sheet.getRange(startRow + i, lastColumn).setValue(EMAIL_DRAFTED); 
       SpreadsheetApp.flush(); 
     }
   }
