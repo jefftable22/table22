@@ -13,13 +13,15 @@ function draftMyEmails() {
     var partnerContactName = row[0];               
     var partnerEmail = row[1];               
     var partner = row[2];                       
-    var PickupFulfillmentDate = row[16];  
-    var PickupWindow = row[17];                 
-    var DeliveryFulfillmentDate = row[18];  
-    var DeliveryWindow = row[19];                
-    var thismonth = row[14];      
-    var FulfillmentReportLink = row[20]; 
-    var PMname = row[21];             
+    var PickupFulfillmentDate = row[21];  
+    var PickupWindow = row[22];    
+    var PickupFulfillmentDate2 = row[23];  
+    var PickupWindow2 = row[24];               
+    var DeliveryFulfillmentDate = row[25];  
+    var DeliveryWindow = row[26];                
+    var thismonth = row[19];      
+    var FulfillmentReportLink = row[27]; 
+    var PMname = row[28];             
     var emailStatus = row[lastColumn - 1];  
     
     if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
@@ -29,8 +31,8 @@ function draftMyEmails() {
         emailBody += '<p><font size="+5"> </font><p>';
         emailBody += '<p>I hope you are well! I am reaching out to share your preliminary '+ thismonth +' fulfillment report, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
-        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
-        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
         emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
