@@ -24,7 +24,7 @@ function draftMyEmails() {
       
       var emailBody =  '<p>Hi ' + partner + ',<p>';
         emailBody += '<p><font size="+5"> </font><p>';
-        emailBody += '<p>We are reaching out to remind you that your <strong>final order counts</strong> for ' + thismonth + ' fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p>Table22 here — reaching out to remind you that your <strong>final order counts</strong> for next '+ thismonth +' fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
         emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
@@ -39,7 +39,7 @@ function draftMyEmails() {
     
       GmailApp.createDraft(
         partnerEmail,            
-        'Table22 x '+ partner +' - Final '+ thismonth +' Order Counts',   
+        'Table22 x '+ partner +' - Preliminary '+ thismonth +' Order Counts',  
         '',                     
         {
         htmlBody: emailBody    
