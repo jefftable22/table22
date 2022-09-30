@@ -29,8 +29,9 @@ function draftMyEmails() {
         emailBody += '<p><font size="+5"> </font><p>';
         emailBody += '<p>Table22 here — reaching out to remind you that your <strong>preliminary</strong> order counts for next month’s fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
-        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
-        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000"><br>' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
+        emailBody += '<p><strong><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000"><br>' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
         emailBody += '<p><strong>Notes: <FONT COLOR="#008000">' + specnotes + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
         emailBody += '<p>Over the coming days, we will send out communications to all members with a '+ thismonth +' order reminding them of the above fulfillment date and instructions. You will receive another email from us on the <strong>fifth business day</strong> once your '+ thismonth +' order counts are final!<p>';
