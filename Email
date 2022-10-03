@@ -12,16 +12,19 @@ function draftMyEmails() {
     var row = data[i];  
     var partnerContactName = row[0];               
     var partnerEmail = row[1];               
-    var partner = row[2];                       
-    var PickupFulfillmentDate = row[21];  
-    var PickupWindow = row[22];    
-    var PickupFulfillmentDate2 = row[23];  
-    var PickupWindow2 = row[24];               
-    var DeliveryFulfillmentDate = row[25];  
-    var DeliveryWindow = row[26];                
-    var thismonth = row[19];      
+    var partner = row[2];  
+    var ShippingFulfillmentDate = row[21];  
+    var ShippingWindow = row[22];                      
+    var PickupFulfillmentDate = row[26];  
+    var PickupWindow = row[27];    
+    var PickupFulfillmentDate2 = row[28];  
+    var PickupWindow2 = row[29];               
+    var DeliveryFulfillmentDate = row[30];  
+    var DeliveryWindow = row[31];                
+    var thismonth = row[24];      
     var FulfillmentReportLink = row[27]; 
-    var PMname = row[28];             
+    var PMname = row[35];    
+    var sharenotes = row[36];            
     var emailStatus = row[lastColumn - 1];  
     
     if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
@@ -29,14 +32,15 @@ function draftMyEmails() {
       
       var emailBody =  '<p>Hi ' + partnerContactName + ',<p>';
         emailBody += '<p><font size="+5"> </font><p>';
-        emailBody += '<p>I hope you are well! I am reaching out to share your preliminary '+ thismonth +' fulfillment report, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p>I hope you are well! I am reaching out to share that this months preliminary order counts are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
         emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow2 + '</FONT></strong><p>'; 
         emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
+        emailBody += '<p><strong><FONT COLOR="#ff0000">Notes: ' + sharenotes + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
-        emailBody += '<p>The full preliminary report is linked here: <strong><a href="'+ FulfillmentReportLink +'">'+ partner +' Fulfillment Report</a></strong><p>';
         emailBody += '<p>Let us know if you have any questions in advance of us sending out member communications with these dates! We’ll follow up before your fulfillment with final order counts.<p>';
         emailBody += '<p><br><p>';
         emailBody += '<p>Best,<p>';
