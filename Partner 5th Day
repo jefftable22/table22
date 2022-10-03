@@ -36,7 +36,7 @@ function draftMyEmails() {
         emailBody += '<p><font size="-1"> </font><p>';  
         emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
-        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow2 + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow + '</FONT></strong><p>';
         emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">Notes: ' + sharenotes + '</FONT></strong><p>';
