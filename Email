@@ -13,8 +13,8 @@ function draftMyEmails() {
     var partnerContactName = row[0];               
     var partnerEmail = row[1];               
     var partner = row[2];  
-    var ShippingFulfillmentDate = row[21];  
-    var ShippingWindow = row[22];                      
+    var ShippingFulfillmentDate = row[32];  
+    var ShippingWindow = row[33];                      
     var PickupFulfillmentDate = row[26];  
     var PickupWindow = row[27];    
     var PickupFulfillmentDate2 = row[28];  
@@ -36,8 +36,8 @@ function draftMyEmails() {
         emailBody += '<p><font size="-1"> </font><p>';  
         emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
-        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow2 + '</FONT></strong><p>'; 
-        emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
+        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow + '</FONT></strong><p>';
+        emailBody += '<p><strong>Preliminary '+ thismonth +' Order Counts:</strong><p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">Notes: ' + sharenotes + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
