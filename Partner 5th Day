@@ -34,7 +34,7 @@ function draftMyEmails() {
         emailBody += '<p><font size="+5"> </font><p>';
         emailBody += '<p>I hope you are well! I am reaching out to share that this months preliminary order counts are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
-        emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
         emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow + '</FONT></strong><p>';
         emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
