@@ -9,49 +9,41 @@ function draftMyEmails() {
   var data = dataRange.getValues();            
   
   for (var i = 0; i < data.length; ++i) {
-    var row = data[i];  
-    var partnerContactName = row[0];               
-    var partnerEmail = row[1];               
-    var partner = row[2];  
-    var ShippingFulfillmentDate = row[32];  
-    var ShippingWindow = row[33];                      
-    var PickupFulfillmentDate = row[26];  
-    var PickupWindow = row[27];    
-    var PickupFulfillmentDate2 = row[28];  
-    var PickupWindow2 = row[29];               
-    var DeliveryFulfillmentDate = row[30];  
-    var DeliveryWindow = row[31];                
-    var thismonth = row[24];      
-    var FulfillmentReportLink = row[27]; 
-    var PMname = row[35];    
-    var sharenotes = row[36];            
+    var row = data[i];                 
+    var partnerEmail = row[0];               
+    var partner = row[1];                       
+    var PickupFulfillmentDate = row[20];  
+    var PickupWindow = row[21];    
+    var PickupFulfillmentDate2 = row[22];  
+    var PickupWindow2 = row[23];               
+    var DeliveryFulfillmentDate = row[24];  
+    var DeliveryWindow = row[25];                
+    var thismonth = row[18];      
+    var specnotes = row[26];       
     var emailStatus = row[lastColumn - 1];  
     
-    if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
+      if (emailStatus !== EMAIL_DRAFTED && partnerEmail) {  
     
       
-      var emailBody =  '<p>Hi ' + partnerContactName + ',<p>';
+      var emailBody =  '<p>Hi ' + partner + ' team,<p>';
         emailBody += '<p><font size="+5"> </font><p>';
-        emailBody += '<p>I hope you are well! I am reaching out to share that this months preliminary order counts are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
+        emailBody += '<p>Table22 here — reaching out to remind you that your <strong>preliminary</strong> order counts for next month’s fulfillment are now available in the <strong><a href="https://app.table22.com/partner">Table 22 Partner Portal</a></strong>, which will help your team prepare for your upcoming fulfillment on:<p>';
         emailBody += '<p><font size="-1"> </font><p>';  
-        emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
-        emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
-        emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow + '</FONT></strong><p>';
-        emailBody += '<p><strong>Preliminary '+ thismonth +' Order Counts:</strong><p>';
-        emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
-        emailBody += '<p><strong><FONT COLOR="#ff0000">Notes: ' + sharenotes + '</FONT></strong><p>';
+        emailBody += '<p><strong>Pickup: <FONT COLOR="#008000"><br>' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT></strong><p>'; 
+        emailBody += '<p><strong><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
+        emailBody += '<p><strong>Delivery: <FONT COLOR="#008000"><br>' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
+        emailBody += '<p><strong>Notes: <FONT COLOR="#008000">' + specnotes + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
-        emailBody += '<p>Let us know if you have any questions in advance of us sending out member communications with these dates! We’ll follow up before your fulfillment with final order counts.<p>';
+        emailBody += '<p>Over the coming days, we will send out communications to all members with a '+ thismonth +' order reminding them of the above fulfillment date and instructions. You will receive another email from us on the <strong>fifth business day</strong> once your '+ thismonth +' order counts are final!<p>';
+        emailBody += '<p>Don’t hesitate to reach out if you have any questions!<p>';
         emailBody += '<p><br><p>';
-        emailBody += '<p>Best,<p>';
-        emailBody += '<p>' + PMname+ '<p>';
-        emailBody += '<p><strong>Table22</strong><p>';
-
+        emailBody += '<p>Cheers,<p>';
+        emailBody += '<p><strong>Merchant Partner Management Team</strong><p>';
 
     
       GmailApp.createDraft(
         partnerEmail,            
-        'Table22 x '+ partner +' '+ thismonth +' Fulfillment',  
+       'Table22 x '+ partner +' - Preliminary '+ thismonth +' Order Counts',   
         '',                     
         {
         htmlBody: emailBody    
