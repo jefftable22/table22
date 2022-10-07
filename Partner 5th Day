@@ -37,12 +37,11 @@ function draftMyEmails() {
         emailBody += '<p><strong>Pickup:<br><FONT COLOR="#008000">' + PickupFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow + '</FONT><br><FONT COLOR="#008000">' + PickupFulfillmentDate2 + '&nbsp;&nbsp;&nbsp;&nbsp;' + PickupWindow2 + '</FONT></strong><p>'; 
         emailBody += '<p><strong>Delivery:<br><FONT COLOR="#008000">' + DeliveryFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + DeliveryWindow + '</FONT></strong><p>';
         emailBody += '<p><strong>Shipping:<br><FONT COLOR="#008000">' + ShippingFulfillmentDate + '&nbsp;&nbsp;&nbsp;&nbsp;' + ShippingWindow + '</FONT></strong><p>';
-        emailBody += '<p>Preliminary '+ thismonth +' Order Counts:<p>';
-        emailBody += '<p><strong><FONT COLOR="#ff0000">[INSERT SUMMARY SCREENSHOT FROM FR]</FONT></strong><p>';
         emailBody += '<p><strong><FONT COLOR="#ff0000">Notes: ' + sharenotes + '</FONT></strong><p>';
         emailBody += '<p><font size="-1"> </font><p>';
-        emailBody += '<p>Let us know if you have any questions in advance of us sending out member communications with these dates! We’ll follow up before your fulfillment with final order counts.<p>';
+        emailBody += '<p>You can review a summary of your orders in the “Fulfillment Report” tab and a more detailed list in the “Cohort Rosters” tab.<p>';
         emailBody += '<p><br><p>';
+        emailBody += '<p>Don’t hesitate to reach out if you have any questions! <p>';
         emailBody += '<p>Best,<p>';
         emailBody += '<p>' + PMname+ '<p>';
         emailBody += '<p><strong>Table22</strong><p>';
